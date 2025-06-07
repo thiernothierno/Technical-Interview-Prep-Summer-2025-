@@ -104,3 +104,9 @@ word_2 = "eggplant"
 word_3 = "Choir"
 # print(tiggerfy(word_3))
 
+
+# Problem 5: Missing Clues
+
+def find_missing_clues(clues, lower, upper):
+    """Return the shortest sorted list of ranges that exactly covers all the missing numbers."""
+    
