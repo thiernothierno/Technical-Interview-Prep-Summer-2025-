@@ -127,7 +127,38 @@ def find_missing_clues(clues, lower, upper):
         result.append([clues[-1], upper])
     return result
 
-clues = [-1]
-lower = -1
-upper = -1
-print(find_missing_clues(clues, lower, upper))
+# Review
+# clues = [0, 1, 3, 50, 75]
+# lower = 0
+# upper = 99
+# print(find_missing_clues(clues, lower, upper))
+
+# Problem 6: Vegetable Harvest
+def harvest(vegetable_patch):
+    """Return number of carrot ready to harvest."""
+    # Check for empty matrix
+    if len(vegetable_patch) == 0:
+        return 0
+    # Set number of rows and columns of the matrix
+    row = len(vegetable_patch)
+    col = len(vegetable_patch[0])
+
+    # Define a count variable to store the final output
+    count = 0
+
+    # Iterate over the matrix, and find all carrot ready to harvest
+    for r in range(row):
+        for c in range(col):
+            if vegetable_patch[r][c] == 'c':
+                count += 1
+    
+    return count
+
+# Review 
+vegetable_patch = [
+	['x', 'c', 'x'],
+	['x', 'x', 'x'],
+	['x', 'c', 'c'],
+	['c', 'c', 'c']
+]
+print(harvest(vegetable_patch))
