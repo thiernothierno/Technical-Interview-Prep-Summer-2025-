@@ -109,4 +109,25 @@ word_3 = "Choir"
 
 def find_missing_clues(clues, lower, upper):
     """Return the shortest sorted list of ranges that exactly covers all the missing numbers."""
-    
+    # Initialize an empty list to store the output
+    result = []
+    # sort the clues
+    sorted(clues)
+    # add lower bound if necessary
+    if lower < clues[0]:
+        result.append([lower, clues[0]]) 
+    # Find missing clues
+    for i in range(len(clues) - 1):
+        if clues[i] == clues[i+1] - 1:
+            continue
+        else:
+            result.append([clues[i] + 1,  clues[i+1] - 1])
+    # Add upper bound if necessary
+    if upper > clues[-1]:
+        result.append([clues[-1], upper])
+    return result
+
+clues = [-1]
+lower = -1
+upper = -1
+print(find_missing_clues(clues, lower, upper))
