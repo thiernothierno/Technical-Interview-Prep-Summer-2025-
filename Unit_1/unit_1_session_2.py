@@ -20,6 +20,7 @@ def transpose(matrix):
     row = len(matrix)
     col = len(matrix[0])
     result = [[0 for _ in range(row)] for _ in range(col)]
+    print(result)
 
     for i in range(row):
         for j in range(col):
@@ -27,18 +28,18 @@ def transpose(matrix):
                 
     return result
 
-matrix_1 = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
-]
-print(transpose(matrix_1))
+# matrix_1 = [
+#     [1, 2, 3],
+#     [4, 5, 6],
+#     [7, 8, 9]
+# ]
+# print(transpose(matrix_1))
 
-matrix_2 = [
-    [1, 2, 3],
-    [4, 5, 6]
-]
-print(transpose(matrix_2))
+# matrix_2 = [
+#     [1, 2, 3],
+#     [4, 5, 6]
+# ]
+# print(transpose(matrix_2))
 
 
 # Problem 2: Two-Pointer Reverse List
@@ -69,8 +70,8 @@ def reverse_list(lst):
     return lst
 
 # Review
-lst = ["pooh", "christopher robin", "piglet", "roo", "eeyore"]
-print(reverse_list(lst))
+# lst = ["pooh", "christopher robin", "piglet", "roo", "eeyore"]
+# print(reverse_list(lst))
 
 
 
@@ -104,9 +105,35 @@ def remove_dupes(items):
     result = items[:i+1]
     return len(result)
 
-items_1 = ["extract of malt", "haycorns", "honey", "thistle", "thistle"]
-print(remove_dupes(items_1))
+# items_1 = ["extract of malt", "haycorns", "honey", "thistle", "thistle"]
+# print(remove_dupes(items_1))
 
-items_2 = ["extract of malt", "haycorns", "honey", "thistle"]
-print(remove_dupes(items_2))
+# items_2 = ["extract of malt", "haycorns", "honey", "thistle"]
+# print(remove_dupes(items_2))
 
+
+# Problem 4: Sort Array by Parity
+
+def sort_by_parity(nums):
+    """Return sorted array by parity."""
+    # Base case
+    if len(nums) == 1:
+        return nums
+    # Define empty even and odd list
+    evens = []
+    odds = []
+    # Iterate over nums and append all even numbers into even list and odd numbers into odd list.
+    for val in nums:
+        if val % 2 == 0:
+            evens.append(val)
+        else:
+            odds.append(val)
+    # Append all odd values from the odd list into the even list.
+    for odd in odds:
+        evens.append(odd)
+    # Return even list.
+    return evens
+
+
+nums = [3,1,2,4]
+print(sort_by_parity(nums))
