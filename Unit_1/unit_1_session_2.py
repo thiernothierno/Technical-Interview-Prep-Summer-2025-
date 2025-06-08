@@ -116,7 +116,7 @@ def remove_dupes(items):
 
 def sort_by_parity(nums):
     """Return sorted array by parity."""
-    # Base case
+    # Base case when the list has only one element. 
     if len(nums) == 1:
         return nums
     # Define empty even and odd list
@@ -134,6 +134,26 @@ def sort_by_parity(nums):
     # Return even list.
     return evens
 
+# Evaluate
+# Time complexity : 0(n)
+# Space complexity: O(n), follow up question: can we solve this problem with a constant space complexity : O(1)?
 
-nums = [3,1,2,4]
-print(sort_by_parity(nums))
+
+# Improving Space Complexity:
+def sort_by_parity_with_constant_space(nums):
+    # Base case 
+    if len(nums) == 1:
+        return nums
+    # Define a variable i and initialize it to zero.
+    i = 0
+    # Iterate over nums 
+    for j in range(len(nums)):
+        if nums[j] % 2 == 0:
+            tmp = nums[i]
+            nums[i] = nums[j]
+            nums[j] = tmp
+            i += 1
+    return nums
+
+nums = [3,1,5,8,10]
+print(sort_by_parity_with_constant_space(nums))
